@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
 
+
 // ANSI Color Codes for enhanced terminal output
 class Colors {
     public static final String RESET = "\u001B[0m";
