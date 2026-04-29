@@ -193,25 +193,27 @@ Prevents data corruption during concurrent writes to the list
 
 ### Critical Section #3: CPU Semaphore
 
-**Purpose of semaphore**: 
+**Purpose of semaphore**: To limit CPU access
 
-**Number of permits and why**: 
+**Number of permits and why**: 1, because we are simulating a single-core CPU
 
-**Where implemented**: 
+**Where implemented**: Inside 
 
 **Code snippet**:
-```java
-// Paste your implementation here
+`   java
+   SharedResources.cpuSemaphore.acquire();
+   try { /* execution logic */ } 
+   finally { SharedResources.cpuSemaphore.release(); }
 ```
 
 **Effect on program behavior**: 
-
+Queues threads so they use the CPU one by one
 ---
 
 ## Part 4: Testing and Verification (2 marks)
 
 ### Test 1: Consistency Check
-**What I tested**: Running program multiple times to verify consistent results
+**What I tested**: Running the program multiple times
 
 **Testing procedure**: 
 ```bash
@@ -219,11 +221,9 @@ Prevents data corruption during concurrent writes to the list
 ```
 
 **Results**: 
-(Show that running multiple times produces consistent, correct results)
-
+Consistent outputs and matching final numbers every time
 **Why synchronization is necessary**: 
-(Explain what race conditions COULD occur without synchronization, even if you didn't observe them. Explain which shared resources need protection and why.)
-
+Without it, numbers would randomly change every run due to race conditions
 **Conclusion**: 
 
 ---
