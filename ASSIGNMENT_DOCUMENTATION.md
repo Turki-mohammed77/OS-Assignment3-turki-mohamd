@@ -70,29 +70,30 @@ Document your development process with **minimum 3 entries** showing progression
 
 ---
 
-### Entry 4 - [Date, Time]
-**What I implemented**: 
+### Entry 4 - [28 April 2026, 03:00 PM]
+**What I implemented**: CPU yielding logic using cpuSemaphore.acquire
 
-**Challenges encountered**: 
+**Challenges encountered**: Calculating the waiting time correctly after multiple pauses
 
-**How I solved it**: 
+**How I solved it**:  Fixed the formula: (completionTime - creationTime) - burstTime
 
-**Testing approach**: 
+**Testing approach**: Ran 5 processes and manually calculated waiting time to verify the code's output
 
-**Time spent**: 
+**Time spent**: 1.5 hour
 
 ---
 
-### Entry 5 - [Date, Time]
-**What I implemented**: 
+### Entry 5 - [[29 April 2026, 01:00 AM]
+**What I implemented**: Formatted the statistics summary table
 
-**Challenges encountered**: 
+**Challenges encountered**: Aligning the table columns with multiple threads printing
 
-**How I solved it**: 
+**How I solved it**:  Used String.format() for clean spacing and ANSI colors
 
-**Testing approach**: 
+**Testing approach**: *Testing approach:* Full system test with 20 processes to ensure smooth execution and proper termination
 
-**Time spent**: 
+**Time spent**: 1.5 hour
+
 
 ---
 
