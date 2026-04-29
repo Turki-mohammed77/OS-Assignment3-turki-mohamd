@@ -142,6 +142,11 @@ one count gets lost because ++ is not an atomic operation]
 **Your Answer**:
 
 [
+I chose Fine-Grained Locking by creating separate locks for each resource (contextSwitchLock, logLock, etc.). This is better because these counters are 
+
+independent. Using one "Big Lock" (Coarse-Grained) would mean a thread updating the log would block another thread just trying to increment a context switch, 
+
+which slows down the simulation. Fine-grained locking allows higher concurrency because threads only block each other if they are touching the exact same variable.
 ]
 
 ---
@@ -150,36 +155,40 @@ one count gets lost because ++ is not an atomic operation]
 
 ### Critical Section #1: Counter Variables
 
-**Which variables**: 
+**Which variables**: contextSwitchCount
 
-**Why they need protection**: 
+**Why they need protection**: To prevent lost updates during concurrent increments
 
-**Synchronization mechanism used**: 
+**Synchronization mechanism used**:  ReentrantLock (contextSwitchLock
 
 **Code snippet**:
 ```java
-// Paste your implementation here
+  contextSwitchLock.lock();
+   try { contextSwitchCount++; } 
+   finally { contextSwitchLock.unlock(); }
 ```
 
-**Justification**: 
+**Justification**: Ensures accurate counting by allowing only one thread to increment at a time
 
 ---
 
 ### Critical Section #2: Execution Log
 
-**What resource**: 
+**What resource**: executionLog (ArrayList)
 
-**Why it needs protection**: 
+**Why it needs protection**:  Standard ArrayList crashes with concurrent modifications
 
-**Synchronization mechanism used**: 
+**Synchronization mechanism used**: ReentrantLock (logLock)
 
 **Code snippet**:
 ```java
-// Paste your implementation here
+logLock.lock();
+   try { executionLog.add(message); } 
+   finally { logLock.unlock(); }
 ```
 
 **Justification**: 
-
+Prevents data corruption during concurrent writes to the list
 ---
 
 ### Critical Section #3: CPU Semaphore
