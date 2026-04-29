@@ -107,8 +107,9 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Your answer here - 4-6 sentences with code examples]
-
+[ 1. *contextSwitchCount++:* If two threads increment this at the same time, one count gets lost because ++ is not an atomic operation.
+ 2. *executionLog.add(message):* ArrayList is not thread-safe. Concurrent additions can corrupt the list or cause an ArrayIndexOutOfBoundsException
+one count gets lost because ++ is not an atomic operation]
 ---
 
 ### Question 2: Locks vs Semaphores
@@ -116,7 +117,7 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Your answer here - explain your implementation choices]
+[A ReentrantLock allows only one thread at a time (mutual exclusion); I used it to protect my shared counters. A Semaphore manages a set number of permits; I used it for the CPU (cpuSemaphore with 1 permit) to control how many processes can run simultaneously]
 
 ---
 
@@ -125,7 +126,9 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Your answer here - reference try-finally blocks, lock ordering, etc.]
+[Deadlock is when threads are stuck forever waiting for each other. I prevented it by:
+ 1. Always using try-finally to ensure locks are released even if an error occurs.
+ 2. Avoiding nested locks (threads only hold one lock at a time)]
 
 ---
 
@@ -138,7 +141,8 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Your answer here - explain coarse-grained vs fine-grained locking, independence of counters, concurrency implications. Show understanding of when to use each approach. 5-8 sentences expected.]
+[
+]
 
 ---
 
