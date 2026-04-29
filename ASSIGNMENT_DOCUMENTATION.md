@@ -31,42 +31,42 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
+### Entry 1 - [25 April 2026 04:00 PM]
 **What I implemented**: 
 
-**Challenges encountered**: 
+**Challenges encountered**: Setup the Process class and basic variables
 
-**How I solved it**: 
+**How I solved it**: Tracking process progress
 
-**Testing approach**: 
+**Testing approach**: Used simple math to print a visual progress bar
 
-**Time spent**: 
+**Time spent**: 1 hour
 
 ---
 
-### Entry 2 - [Date, Time]
-**What I implemented**: 
+### Entry 2 - [26 April 2026 05:30 PM]
+**What I implemented**: Added multithreading to simulate concurrent processes
 
-**Challenges encountered**: 
+**Challenges encountered**: Output was messy and counters were inaccurate
 
-**How I solved it**: 
+**How I solved it**:  Realized I needed synchronization to fix race conditions
 
-**Testing approach**: 
+**Testing approach**: Ran multiple dummy threads to check if counter values were lost
 
-**Time spent**: 
+**Time spent**: 1 hour
 
 ---
 
-### Entry 3 - [Date, Time]
-**What I implemented**: 
+### Entry 3 - [27 April 2026 08:00 PM]
+**What I implemented**:  Added ReentrantLock for counters and a Semaphore
 
-**Challenges encountered**: 
+**Challenges encountered**: Forgetting to release locks, causing threads to freeze
 
-**How I solved it**: 
+**How I solved it**: Wrapped all critical sections in try-finally blocks
 
-**Testing approach**: 
+**Testing approach**: Forced an exception in a thread to check if locks were still safely released
 
-**Time spent**: 
+**Time spent**: 1 hour
 
 ---
 
