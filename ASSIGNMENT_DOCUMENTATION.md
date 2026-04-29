@@ -283,31 +283,32 @@ Imagine a single public restroom with one key. Synchronization is the rule that 
 
 ## Part 6: GitHub Repository Information
 
-**Repository URL**: 
+**Repository URL**: https://github.com/Turki-mohammed77/OS-Assignment3-turki-mohamd.git
 
-**Number of commits**: 
+**Number of commits**: 16
 
 **Commit messages**: 
-1. 
-2. 
-3. 
-4. 
+1. p2
+2. p5,4
+3. edit
+4. t2
 
 ---
 
 ## Summary
 
-**Total time spent on assignment**: 
+**Total time spent on assignment**: 5.5 hours
 
 **Key takeaways**: 
-1. 
-2. 
-3. 
+1. ArrayList is not thread-safe and must be locked
+2. Always use try-finally blocks
+3. Fine-grained locks are faster but require more code
 
 **Most challenging aspect**: 
 
 **What I'm most proud of**: 
 
----
+Making the simulation 100% thread safe with a clean console UI
+End of Documentation
 
 **End of Documentation**
