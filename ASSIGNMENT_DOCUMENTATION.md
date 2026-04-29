@@ -229,35 +229,36 @@ Without it, numbers would randomly change every run due to race conditions
 ---
 
 ### Test 2: Exception Testing
-**What I tested**: Checking for ConcurrentModificationException
+**What I tested**: Forced an error inside a thread to check locks
 
-**Testing procedure**: 
+**Testing procedure**: Inserted a temporary throw new RuntimeException() inside a locked section
 
-**Results**: 
+**Results**: The lock was still released, and other threads continued normally
 
-**What this proves**: 
+**What this proves**: The try-finally implementation successfully prevents deadlocks
 
 ---
 
 ### Test 3: Correctness Verification
-**What I tested**: Verifying correct final values (total burst time, context switches, etc.)
+**What I tested**: Verifying correct final values
 
-**Expected values**: 
+**Expected values**: Number of completed processes should equal generated processe
 
-**Actual values**: 
+**Actual values**: Number of completed processes should equal generated processes
 
-**Analysis**: 
+**Analysis**: The completedProcessLock accurately tracked thread completions without dropping counts
 
 ---
 
 ### Test 4: Different Scenarios
-**Scenario tested**: [e.g., different time quantum, more processes, etc.]
+**Scenario tested**: Simulating a large number of processes (e.g. 50)
 
-**Purpose**: 
+**Purpose**: Stress test the locks
 
-**Results**: 
+**Results**: Ran smoothly without freezing or thread starvation
 
-**What I learned**: 
+**What I learned**: Fine-grained locks handle high concurrency traffic efficiently.
+ Part 5: Reflection and Learning
 
 ---
 
